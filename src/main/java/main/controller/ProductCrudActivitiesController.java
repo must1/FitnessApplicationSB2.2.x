@@ -25,7 +25,7 @@ public class ProductCrudActivitiesController {
         return productCrudActivitiesService.getProductForId(id);
     }
 
-    @PostMapping("/product")
+    @PostMapping("/createProduct")
     public List<String> createProduct(@RequestBody Product newProduct) {
         return productCrudActivitiesService.createProduct(newProduct);
     }

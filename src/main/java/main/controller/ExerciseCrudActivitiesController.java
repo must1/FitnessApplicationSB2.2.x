@@ -31,7 +31,7 @@ public class ExerciseCrudActivitiesController {
         return exerciseCrudActivitiesService.getExercisesForType(exerciseType);
     }
 
-    @PostMapping("/exercise")
+    @PostMapping("/createExercise")
     public List<String> addExercise(@RequestBody Exercise exercise) {
         return exerciseCrudActivitiesService.addExercise(exercise);
     }

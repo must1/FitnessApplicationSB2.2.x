@@ -3,6 +3,7 @@ package main.exercise;
 import main.entity.Exercise;
 import main.validator.exercisevalidator.attributevalidators.ExerciseValidator;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,7 +34,7 @@ public class ExerciseCrudActivitiesService {
 
     public List<String> addExercise(Exercise exercise) {
         List<String> messages = new ExerciseValidator().validate(exercise);
-        if (messages.isEmpty()) {
+        if (CollectionUtils.isEmpty(messages)) {
             exerciseRepository.save(exercise);
         }
         return messages;

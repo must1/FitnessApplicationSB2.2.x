@@ -3,6 +3,7 @@ package main.product;
 import main.entity.Product;
 import main.validator.productvalidator.attributesvalidators.ProductValidator;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class ProductCrudActivitiesService {
 
     public List<String> createProduct(Product newProduct) {
         List<String> messages = new ProductValidator().validate(newProduct);
-        if (messages.isEmpty()) {
+        if (CollectionUtils.isEmpty(messages)) {
             productRepository.save(newProduct);
         }
         return messages;

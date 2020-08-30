@@ -6,7 +6,7 @@ import main.validator.uservalidator.availabilityvalidators.UserAvailabilityValid
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
+import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class UserCrudActivitiesService {
     public List<String> createUser(User user) {
         List<String> messages = validateUser(user);
 
-        if (StringUtils.isEmpty(messages)) {
+        if (CollectionUtils.isEmpty(messages)) {
             userRepository.save(user.toBuilder()
                     .password(passwordEncoder.encode(user.getPassword()))
                     .build());
