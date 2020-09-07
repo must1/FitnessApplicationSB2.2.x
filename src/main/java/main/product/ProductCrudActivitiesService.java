@@ -37,6 +37,7 @@ public class ProductCrudActivitiesService {
 
     //todo stescic to
     public Product getProductForId(int id) {
-       return null;
+        return productRepository.getById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Product with id " + id + " was not found"));
     }
 }

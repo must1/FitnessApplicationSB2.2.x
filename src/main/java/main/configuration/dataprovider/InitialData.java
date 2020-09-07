@@ -86,28 +86,28 @@ public class InitialData {
 
         productRepository.save(Product.builder()
                 .name("Chicken")
-                .carbohydratesNumber(0)
-                .fatNumber(1.3)
-                .proteinNumber(21.5)
-                .kcalNumber(99)
+                .carbohydratesNumberPer100G(0)
+                .fatNumberPer100G(1.3)
+                .proteinNumberPer100G(21.5)
+                .kcalNumberPer100G(99)
                 .type(ProductType.MEAT)
                 .build());
 
         productRepository.save(Product.builder()
                 .name("Turkey")
-                .carbohydratesNumber(0)
-                .fatNumber(0.7)
-                .proteinNumber(19.2)
-                .kcalNumber(84)
+                .carbohydratesNumberPer100G(0)
+                .fatNumberPer100G(0.7)
+                .proteinNumberPer100G(19.2)
+                .kcalNumberPer100G(84)
                 .type(ProductType.MEAT)
                 .build());
 
         productRepository.save(Product.builder()
                 .name("Bread")
-                .carbohydratesNumber(0)
-                .fatNumber(4.2)
-                .proteinNumber(22.9)
-                .kcalNumber(129)
+                .carbohydratesNumberPer100G(2)
+                .fatNumberPer100G(4.2)
+                .proteinNumberPer100G(22.9)
+                .kcalNumberPer100G(129)
                 .type(ProductType.GRAIN)
                 .build());
     }
@@ -120,6 +120,15 @@ public class InitialData {
                 .firstName("Macko")
                 .lastName("Bogdaniec")
                 .username("must1")
+                .email("analnyPenetrator6969@gmail.com")
+                .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
+                .phoneNumber("213702137")
+                .build());
+
+        userRepository.save(User.builder()
+                .firstName("Macko")
+                .lastName("Bogdaniec")
+                .username("admin1")
                 .email("analnyPenetrator6969@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
                 .phoneNumber("213702137")

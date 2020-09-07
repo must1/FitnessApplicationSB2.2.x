@@ -8,11 +8,11 @@ public class ProductMacronutrientsValidator implements ProductAttributesValidato
 
     @Override
     public String validate(Product product) {
-        if (product.getCarbohydratesNumber() > MAXIMUM_NUMBER_OF_MACRONUTRIENTS)
+        if (product.getCarbohydratesNumberPer100G() > MAXIMUM_NUMBER_OF_MACRONUTRIENTS)
             return "Too much of carbohydrates!";
-        else if (product.getProteinNumber() > MAXIMUM_NUMBER_OF_MACRONUTRIENTS)
-            return "Too much of proteints!";
-        else if (product.getFatNumber() > MAXIMUM_NUMBER_OF_MACRONUTRIENTS)
+        else if (product.getProteinNumberPer100G() > MAXIMUM_NUMBER_OF_MACRONUTRIENTS)
+            return "Too much of proteins!";
+        else if (product.getFatNumberPer100G() > MAXIMUM_NUMBER_OF_MACRONUTRIENTS)
             return "Too much of fat!";
 
         return null;

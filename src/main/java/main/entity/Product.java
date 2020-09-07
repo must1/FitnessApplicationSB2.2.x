@@ -20,9 +20,10 @@ public class Product {
     private int id;
     @NonNull
     private String name;
-    private double fatNumber;
-    private double proteinNumber;
     private ProductType type;
-    private double carbohydratesNumber;
-    private int kcalNumber;
+    private int kcalNumberPer100G;
+    private double fatNumberPer100G;
+    private double proteinNumberPer100G;
+    private double carbohydratesNumberPer100G;
+
 }

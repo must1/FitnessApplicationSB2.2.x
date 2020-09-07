@@ -19,7 +19,7 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue
-    private Long userId;
+    private Long id;
     private String firstName;
     private String lastName;
     private String username;
