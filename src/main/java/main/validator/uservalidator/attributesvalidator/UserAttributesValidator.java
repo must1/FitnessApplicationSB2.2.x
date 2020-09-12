@@ -18,7 +18,7 @@ public class UserAttributesValidator {
         validators.add(new UserLastNameValidator());
         validators.add(new UserPasswordValidator());
         validators.add(new UserPhoneValidator());
-        validators.add(new UsernameValidator());
+        validators.add(new UserNameValidator());
     }
 
     public List<String> validate(User user) {

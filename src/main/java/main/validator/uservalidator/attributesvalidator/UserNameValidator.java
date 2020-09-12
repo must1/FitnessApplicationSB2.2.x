@@ -2,7 +2,7 @@ package main.validator.uservalidator.attributesvalidator;
 
 import main.entity.User;
 
-public class UsernameValidator implements IUserAttributesValidator {
+public class UserNameValidator implements IUserAttributesValidator {
 
     public static final int NAME_MAXIMUM_LENGTH = 30;
     public static final int NAME_MINIMUM_LENGTH = 3;

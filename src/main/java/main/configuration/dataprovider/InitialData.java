@@ -120,7 +120,7 @@ public class InitialData {
                 .firstName("Macko")
                 .lastName("Bogdaniec")
                 .username("must1")
-                .email("analnyPenetrator6969@gmail.com")
+                .email("penetrat@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
                 .phoneNumber("213702137")
                 .build());
@@ -129,7 +129,7 @@ public class InitialData {
                 .firstName("Macko")
                 .lastName("Bogdaniec")
                 .username("admin1")
-                .email("analnyPenetrator6969@gmail.com")
+                .email("penetrator@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
                 .phoneNumber("213702137")
                 .build());
