@@ -1,6 +1,6 @@
 package main.product;
 
-import main.entity.Product;
+import main.model.Product;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

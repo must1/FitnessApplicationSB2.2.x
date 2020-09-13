@@ -1,7 +1,7 @@
 package main.userproduct;
 
 import lombok.experimental.UtilityClass;
-import main.entity.Product;
+import main.model.Product;
 
 @UtilityClass
 public class MacroNutrientsCalculator {
@@ -24,7 +24,7 @@ public class MacroNutrientsCalculator {
     }
 
     double countCaloriesOfGivenProduct(double gram, Product product) {
-        int kcalNumber = product.getKcalNumberPer100G();
+        double kcalNumber = product.getKcalNumberPer100G();
         return (kcalNumber * gram) / ONE_HUNDRED_GRAMS;
     }
 }

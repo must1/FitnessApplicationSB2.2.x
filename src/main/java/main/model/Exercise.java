@@ -1,4 +1,4 @@
-package main.entity;
+package main.model;
 
 import lombok.*;
 import main.exercise.ExerciseType;

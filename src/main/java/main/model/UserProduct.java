@@ -1,4 +1,4 @@
-package main.entity;
+package main.model;
 
 import lombok.*;
 
@@ -24,6 +24,6 @@ public class UserProduct {
     private double fatNumber;
     private double proteinNumber;
     private double carbohydratesNumber;
-    private int kcalNumber;
+    private double kcalNumber;
     private LocalDate dateOfEatenProduct;
 }

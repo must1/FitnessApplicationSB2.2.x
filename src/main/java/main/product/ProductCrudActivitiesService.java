@@ -1,6 +1,6 @@
 package main.product;
 
-import main.entity.Product;
+import main.model.Product;
 import main.validator.productvalidator.attributesvalidators.ProductValidator;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;

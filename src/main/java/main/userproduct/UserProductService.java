@@ -1,8 +1,8 @@
 package main.userproduct;
 
-import main.entity.Product;
-import main.entity.User;
-import main.entity.UserProduct;
+import main.model.Product;
+import main.model.User;
+import main.model.UserProduct;
 import main.product.ProductRepository;
 import main.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class UserProductService {
         double calculatedCarbohydrates = MacroNutrientsCalculator.countCarbohydratesNumberNumberOfGivenProduct(gram, retrieveGivenProductFromDB(userProduct));
         double calculatedKcal = MacroNutrientsCalculator.countCaloriesOfGivenProduct(gram, retrieveGivenProductFromDB(userProduct));
 
-        addGivenProductToGivenUserInDB(user.getId(), calculatedFat,
+        addGivenProductToGivenUserInDB(user.getId(), userProduct.getName(), calculatedFat,
                 calculatedProtein, calculatedCarbohydrates, (int) calculatedKcal);
 
         return Map.of(
@@ -53,19 +53,19 @@ public class UserProductService {
         }
     }
 
-    //calculate and add product o user
-    private void addGivenProductToGivenUserInDB(long userID, double calculatedFat, double calculatedProtein, double calculatedCarbohydrates, int calculatedKcal) {
+    private void addGivenProductToGivenUserInDB(long userID, String name, double calculatedFat, double calculatedProtein, double calculatedCarbohydrates, int calculatedKcal) {
         if (checkIfGivenAccountExist(userID)) {
 
-            UserProduct userProduct = new UserProduct();
-            UserProduct.builder()
-                    .carbohydratesNumber(calculatedCarbohydrates)
-                    .fatNumber(calculatedFat)
-                    .kcalNumber(calculatedKcal)
-                    .proteinNumber(calculatedProtein)
-                    .dateOfEatenProduct(LocalDate.now())
-                    .userID(userID)
-                    .build();
+            UserProduct userProduct =
+                    UserProduct.builder()
+                            .name(name)
+                            .carbohydratesNumber(calculatedCarbohydrates)
+                            .fatNumber(calculatedFat)
+                            .kcalNumber(calculatedKcal)
+                            .proteinNumber(calculatedProtein)
+                            .dateOfEatenProduct(LocalDate.now())
+                            .userID(userID)
+                            .build();
 
             userProductRepository.save(userProduct);
         } else {

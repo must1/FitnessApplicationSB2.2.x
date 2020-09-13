@@ -1,4 +1,4 @@
-package main.entity;
+package main.model;
 
 import lombok.*;
 import main.product.ProductType;
@@ -21,7 +21,7 @@ public class Product {
     @NonNull
     private String name;
     private ProductType type;
-    private int kcalNumberPer100G;
+    private double kcalNumberPer100G;
     private double fatNumberPer100G;
     private double proteinNumberPer100G;
     private double carbohydratesNumberPer100G;

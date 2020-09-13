@@ -1,6 +1,6 @@
 package main.user;
 
-import main.entity.User;
+import main.model.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;

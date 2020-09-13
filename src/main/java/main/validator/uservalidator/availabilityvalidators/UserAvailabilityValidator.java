@@ -1,6 +1,6 @@
 package main.validator.uservalidator.availabilityvalidators;
 
-import main.entity.User;
+import main.model.User;
 import main.user.UserRepository;
 
 import java.util.ArrayList;

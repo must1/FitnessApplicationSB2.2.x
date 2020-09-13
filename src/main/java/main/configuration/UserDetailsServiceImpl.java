@@ -1,6 +1,6 @@
 package main.configuration;
 
-import main.entity.User;
+import main.model.User;
 import main.user.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

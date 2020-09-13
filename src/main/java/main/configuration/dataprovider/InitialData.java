@@ -1,9 +1,9 @@
 package main.configuration.dataprovider;
 
 import lombok.extern.slf4j.Slf4j;
-import main.entity.Exercise;
-import main.entity.Product;
-import main.entity.User;
+import main.model.Exercise;
+import main.model.Product;
+import main.model.User;
 import main.exercise.ExerciseRepository;
 import main.exercise.ExerciseType;
 import main.product.ProductRepository;

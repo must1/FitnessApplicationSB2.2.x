@@ -1,6 +1,6 @@
 package main.controller;
 
-import main.entity.User;
+import main.model.User;
 import main.user.UserCrudActivitiesService;
 import org.springframework.web.bind.annotation.*;
 

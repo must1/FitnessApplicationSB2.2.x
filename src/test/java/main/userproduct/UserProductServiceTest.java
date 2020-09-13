@@ -1,8 +1,8 @@
 package main.userproduct;
 
-import main.entity.Product;
-import main.entity.User;
-import main.entity.UserProduct;
+import main.model.Product;
+import main.model.User;
+import main.model.UserProduct;
 import main.product.ProductRepository;
 import main.product.ProductType;
 import main.user.UserRepository;

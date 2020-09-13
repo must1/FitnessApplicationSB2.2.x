@@ -1,9 +1,6 @@
 package main.validator.productvalidator.attributesvalidators;
 
-import main.entity.Product;
-import main.validator.productvalidator.attributesvalidators.ProductAttributesValidator;
-import main.validator.productvalidator.attributesvalidators.ProductMacronutrientsValidator;
-import main.validator.productvalidator.attributesvalidators.ProductNameValidator;
+import main.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;

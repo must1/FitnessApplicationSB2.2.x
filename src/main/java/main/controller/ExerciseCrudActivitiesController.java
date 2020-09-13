@@ -1,6 +1,6 @@
 package main.controller;
 
-import main.entity.Exercise;
+import main.model.Exercise;
 import main.exercise.ExerciseCrudActivitiesService;
 import main.exercise.ExerciseType;
 import org.springframework.web.bind.annotation.*;

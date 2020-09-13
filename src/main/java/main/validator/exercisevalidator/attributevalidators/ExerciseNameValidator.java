@@ -1,6 +1,6 @@
 package main.validator.exercisevalidator.attributevalidators;
 
-import main.entity.Exercise;
+import main.model.Exercise;
 
 public class ExerciseNameValidator implements IExerciseValidator {
 

@@ -1,6 +1,6 @@
 package main.validator.productvalidator.attributesvalidators;
 
-import main.entity.Product;
+import main.model.Product;
 
 public class ProductNameValidator implements ProductAttributesValidator {
 

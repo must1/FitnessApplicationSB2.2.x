@@ -1,6 +1,6 @@
 package main.exercise;
 
-import main.entity.Exercise;
+import main.model.Exercise;
 import main.validator.exercisevalidator.attributevalidators.ExerciseValidator;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;

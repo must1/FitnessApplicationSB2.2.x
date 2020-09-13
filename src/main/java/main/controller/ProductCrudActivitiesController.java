@@ -1,6 +1,6 @@
 package main.controller;
 
-import main.entity.Product;
+import main.model.Product;
 import main.product.ProductCrudActivitiesService;
 import org.springframework.web.bind.annotation.*;
 
