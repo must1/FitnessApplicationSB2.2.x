@@ -1,8 +1,8 @@
 package main.userproduct;
 
 import main.model.Product;
-import main.model.User;
-import main.model.UserProduct;
+import main.model.user.User;
+import main.model.user.UserProduct;
 import main.product.ProductRepository;
 import main.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,7 +54,7 @@ public class UserProductService {
     }
 
     private void addGivenProductToGivenUserInDB(long userID, String name, double calculatedFat, double calculatedProtein, double calculatedCarbohydrates, int calculatedKcal) {
-        if (checkIfGivenAccountExist(userID)) {
+        if (checkIfAccountExist(userID)) {
 
             UserProduct userProduct =
                     UserProduct.builder()
@@ -73,8 +73,8 @@ public class UserProductService {
         }
     }
 
-    private boolean checkIfGivenAccountExist(long userID) {
-        return userRepository.doesAccountExistsWithGivenID(userID);
+    private boolean checkIfAccountExist(long userID) {
+        return userRepository.doesAccountExistsWithID(userID);
     }
 
     public List<UserProduct> getUserProducts() {

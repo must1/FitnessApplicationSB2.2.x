@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ExerciseRepository extends CrudRepository<Exercise, Integer> {
 
-    List<Exercise> getAllByExerciseType(ExerciseType exerciseType);
+    List<Exercise> getAllByBodyPartType(BodyPartType bodyPartType);
 
 }

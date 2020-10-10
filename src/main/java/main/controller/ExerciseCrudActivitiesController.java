@@ -2,7 +2,7 @@ package main.controller;
 
 import main.model.Exercise;
 import main.exercise.ExerciseCrudActivitiesService;
-import main.exercise.ExerciseType;
+import main.exercise.BodyPartType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class ExerciseCrudActivitiesController {
     }
 
     @GetMapping("/exercisetypes")
-    public List<ExerciseType> getExerciseTypes() {
+    public List<BodyPartType> getExerciseTypes() {
         return exerciseCrudActivitiesService.getExerciseTypes();
     }
 
@@ -27,8 +27,8 @@ public class ExerciseCrudActivitiesController {
     }
 
     @GetMapping("/exercise")
-    public List<Exercise> getExercisesForType(@RequestParam("type") ExerciseType exerciseType) {
-        return exerciseCrudActivitiesService.getExercisesForType(exerciseType);
+    public List<Exercise> getExercisesForType(@RequestParam("type") BodyPartType bodyPartType) {
+        return exerciseCrudActivitiesService.getExercisesForType(bodyPartType);
     }
 
     @PostMapping("/createExercise")

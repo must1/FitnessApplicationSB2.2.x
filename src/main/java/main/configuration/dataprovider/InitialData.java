@@ -3,9 +3,9 @@ package main.configuration.dataprovider;
 import lombok.extern.slf4j.Slf4j;
 import main.model.Exercise;
 import main.model.Product;
-import main.model.User;
+import main.model.user.User;
 import main.exercise.ExerciseRepository;
-import main.exercise.ExerciseType;
+import main.exercise.BodyPartType;
 import main.product.ProductRepository;
 import main.product.ProductType;
 import main.user.UserRepository;
@@ -123,6 +123,7 @@ public class InitialData {
                 .email("penetrat@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
                 .phoneNumber("213702137")
+                .favouriteBodyPartType(BodyPartType.CHEST)
                 .build());
 
         userRepository.save(User.builder()
@@ -132,8 +133,8 @@ public class InitialData {
                 .email("penetrator@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
                 .phoneNumber("213702137")
+                .favouriteBodyPartType(BodyPartType.BICEPS)
                 .build());
-
     }
 
 
@@ -144,13 +145,13 @@ public class InitialData {
 
         exerciseRepository.save(Exercise.builder()
                 .name("Running")
-                .exerciseType(ExerciseType.CARDIO)
+                .bodyPartType(BodyPartType.CHEST)
                 .exerciseDescription("Description")
                 .build());
 
         exerciseRepository.save(Exercise.builder()
                 .name("Deadlifting")
-                .exerciseType(ExerciseType.WEIGHTLIFTING)
+                .bodyPartType(BodyPartType.LEGS)
                 .exerciseDescription("Description")
                 .build());
     }

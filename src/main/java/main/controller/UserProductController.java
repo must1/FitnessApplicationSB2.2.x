@@ -1,7 +1,7 @@
 package main.controller;
 
-import main.model.User;
-import main.model.UserProduct;
+import main.model.user.User;
+import main.model.user.UserProduct;
 import main.userproduct.UserProductService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;

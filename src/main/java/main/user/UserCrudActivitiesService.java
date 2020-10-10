@@ -1,6 +1,6 @@
 package main.user;
 
-import main.model.User;
+import main.model.user.User;
 import main.validator.uservalidator.attributesvalidator.UserAttributesValidator;
 import main.validator.uservalidator.availabilityvalidators.UserAvailabilityValidator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

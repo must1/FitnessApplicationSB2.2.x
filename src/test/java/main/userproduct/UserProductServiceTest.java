@@ -1,8 +1,8 @@
 package main.userproduct;
 
 import main.model.Product;
-import main.model.User;
-import main.model.UserProduct;
+import main.model.user.User;
+import main.model.user.UserProduct;
 import main.product.ProductRepository;
 import main.product.ProductType;
 import main.user.UserRepository;
@@ -45,7 +45,7 @@ class UserProductServiceTest {
                 "calculatedCarbohydrates", 0d,
                 "calculatedKcal", 49.5);
 
-        when(userRepository.doesAccountExistsWithGivenID(anyLong())).thenReturn(true);
+        when(userRepository.doesAccountExistsWithID(anyLong())).thenReturn(true);
         when(productRepository.findByName(anyString())).thenReturn(Optional.ofNullable(product));
 
         Map<String, Double> actualValue =
@@ -60,7 +60,7 @@ class UserProductServiceTest {
         Product product = createProduct();
         UserProduct userProduct = createUserProduct();
 
-        when(userRepository.doesAccountExistsWithGivenID(anyLong())).thenReturn(true);
+        when(userRepository.doesAccountExistsWithID(anyLong())).thenReturn(true);
         when(productRepository.findByName(anyString())).thenReturn(Optional.ofNullable(product));
 
         userProductService.getNutrientsOfGivenProductAndAddItToEatenByHimToDB(userProduct, mock(User.class));

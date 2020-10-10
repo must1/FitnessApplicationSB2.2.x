@@ -1,14 +1,14 @@
 package main.configuration;
 
-import main.exercise.ExerciseType;
+import main.exercise.BodyPartType;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ExerciseTypeConverter implements Converter<String, ExerciseType> {
+public class ExerciseTypeConverter implements Converter<String, BodyPartType> {
 
     @Override
-    public ExerciseType convert(String exerciseTypeName) {
-        return ExerciseType.forName(exerciseTypeName);
+    public BodyPartType convert(String exerciseTypeName) {
+        return BodyPartType.forName(exerciseTypeName);
     }
 }

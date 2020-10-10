@@ -1,6 +1,7 @@
-package main.model;
+package main.model.user;
 
 import lombok.*;
+import main.exercise.BodyPartType;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -26,6 +27,7 @@ public class User implements UserDetails {
     private String password;
     private String email;
     private String phoneNumber;
+    private BodyPartType favouriteBodyPartType;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -1,7 +1,7 @@
 package main.history;
 
-import main.model.User;
-import main.model.UserHistory;
+import main.model.user.User;
+import main.model.user.UserHistory;
 import main.userproduct.UserProductRepository;
 import org.springframework.stereotype.Service;
 

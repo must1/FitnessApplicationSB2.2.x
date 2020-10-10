@@ -1,6 +1,6 @@
 package main.validator.uservalidator.attributesvalidator;
 
-import main.model.User;
+import main.model.user.User;
 
 import java.util.ArrayList;
 import java.util.List;

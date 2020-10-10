@@ -1,6 +1,6 @@
 package main.validator.uservalidator.availabilityvalidators;
 
-import main.model.User;
+import main.model.user.User;
 import main.user.UserRepository;
 
 public interface IUserAvailabilityValidator {

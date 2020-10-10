@@ -18,8 +18,8 @@ public class ExerciseCrudActivitiesService {
         this.exerciseRepository = exerciseRepository;
     }
 
-    public List<ExerciseType> getExerciseTypes() {
-        return Arrays.asList(ExerciseType.values());
+    public List<BodyPartType> getExerciseTypes() {
+        return Arrays.asList(BodyPartType.values());
     }
 
     public List<Exercise> getExercises() {
@@ -28,8 +28,8 @@ public class ExerciseCrudActivitiesService {
         return exercises;
     }
 
-    public List<Exercise> getExercisesForType(ExerciseType exerciseType) {
-        return exerciseRepository.getAllByExerciseType(exerciseType);
+    public List<Exercise> getExercisesForType(BodyPartType bodyPartType) {
+        return exerciseRepository.getAllByBodyPartType(bodyPartType);
     }
 
     public List<String> addExercise(Exercise exercise) {
