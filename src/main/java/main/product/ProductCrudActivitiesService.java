@@ -1,7 +1,8 @@
 package main.product;
 
 import main.model.Product;
-import main.validator.productvalidator.attributesvalidators.ProductValidator;
+import main.validator.attributes.product.ProductValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -13,8 +14,11 @@ public class ProductCrudActivitiesService {
 
     private final ProductRepository productRepository;
 
-    public ProductCrudActivitiesService(ProductRepository productRepository) {
+    private final ProductValidator productValidator;
+
+    public ProductCrudActivitiesService(ProductRepository productRepository, ProductValidator productValidator) {
         this.productRepository = productRepository;
+        this.productValidator = productValidator;
     }
 
     public List<Product> getAllProducts() {
@@ -24,7 +28,7 @@ public class ProductCrudActivitiesService {
     }
 
     public List<String> createProduct(Product newProduct) {
-        List<String> messages = new ProductValidator().validate(newProduct);
+        List<String> messages = productValidator.validate(newProduct);
         if (CollectionUtils.isEmpty(messages)) {
             productRepository.save(newProduct);
         }

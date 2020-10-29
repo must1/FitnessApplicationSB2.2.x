@@ -1,12 +1,12 @@
 package main.user;
 
 import main.model.user.User;
-import main.validator.uservalidator.attributesvalidator.UserAttributesValidator;
-import main.validator.uservalidator.availabilityvalidators.UserAvailabilityValidator;
+import main.validator.attributes.user.UserAttributesValidator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
+import main.validator.availability.user.UserAvailabilityValidator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,14 @@ public class UserCrudActivitiesService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserAvailabilityValidator userAvailabilityValidator;
+    private final UserAttributesValidator userAttributesValidator;
 
-    public UserCrudActivitiesService(UserRepository userRepository) {
+    public UserCrudActivitiesService(UserRepository userRepository, UserAvailabilityValidator userAvailabilityValidator, UserAttributesValidator userAttributesValidator) {
         this.userRepository = userRepository;
+        this.userAttributesValidator = userAttributesValidator;
         this.passwordEncoder = new BCryptPasswordEncoder();
+        this.userAvailabilityValidator = userAvailabilityValidator;
     }
 
     public List<User> getAllUsers() {
@@ -46,9 +50,6 @@ public class UserCrudActivitiesService {
     }
 
     private List<String> validateUser(User user) {
-        UserAttributesValidator userAttributesValidator = new UserAttributesValidator();
-        UserAvailabilityValidator userAvailabilityValidator = new UserAvailabilityValidator(userRepository);
-
         List<String> attributesErrors = userAttributesValidator.validate(user);
         List<String> availabilityErrors = userAvailabilityValidator.validate(user);
 

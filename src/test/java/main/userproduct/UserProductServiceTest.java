@@ -66,7 +66,6 @@ class UserProductServiceTest {
         userProductService.getNutrientsOfGivenProductAndAddItToEatenByHimToDB(userProduct, mock(User.class));
 
         verify(userProductRepository, times(1)).save(any());
-
     }
 
     private Product createProduct() {

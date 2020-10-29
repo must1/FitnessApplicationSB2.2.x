@@ -1,10 +1,12 @@
 package main.user;
 
+import main.exercise.BodyPartType;
 import main.model.user.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends CrudRepository<User, Integer> {
@@ -17,4 +19,6 @@ public interface UserRepository extends CrudRepository<User, Integer> {
     Optional<User> findByEmail(String email);
 
     Optional<User> findByPhoneNumber(String phoneNumber);
+
+    List<User> findUsersByFavouriteBodyPartType(BodyPartType bodyPartType);
 }
