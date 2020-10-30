@@ -26,7 +26,7 @@ public class UserCrudActivitiesController {
     }
 
     @PutMapping("/user")
-    public User updateUser(@RequestBody User user) {
+    public List<String> updateUser(@RequestBody User user) {
         return userCrudActivitiesService.updateUser(user);
     }
 }

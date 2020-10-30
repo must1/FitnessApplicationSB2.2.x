@@ -1,11 +1,11 @@
 package main.configuration.dataprovider;
 
 import lombok.extern.slf4j.Slf4j;
+import main.exercise.BodyPartType;
+import main.exercise.ExerciseRepository;
 import main.model.Exercise;
 import main.model.Product;
 import main.model.user.User;
-import main.exercise.ExerciseRepository;
-import main.exercise.BodyPartType;
 import main.product.ProductRepository;
 import main.product.ProductType;
 import main.user.UserRepository;
@@ -13,9 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 @Component
 @Slf4j

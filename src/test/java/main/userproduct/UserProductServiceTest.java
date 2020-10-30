@@ -11,12 +11,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
@@ -38,7 +39,7 @@ class UserProductServiceTest {
     void shouldReturnProperNutrientsForGivenProduct() {
         userProductService = new UserProductService(userProductRepository, productRepository, userRepository);
         Product product = createProduct();
-        UserProduct userProduct = createUserProduct();
+        UserProduct userProduct = createUserProduct(50d);
         Map<String, Double> expectedValue = Map.of(
                 "calculatedFat", 0.65,
                 "calculatedProtein", 10.75,
@@ -55,10 +56,10 @@ class UserProductServiceTest {
     }
 
     @Test
-    void shouldHasInteractionWithDB() {
+    void shouldHasInteractionWithDBWhenAllDataIsCorrect() {
         userProductService = new UserProductService(userProductRepository, productRepository, userRepository);
         Product product = createProduct();
-        UserProduct userProduct = createUserProduct();
+        UserProduct userProduct = createUserProduct(50d);
 
         when(userRepository.doesAccountExistsWithID(anyLong())).thenReturn(true);
         when(productRepository.findByName(anyString())).thenReturn(Optional.ofNullable(product));
@@ -66,6 +67,18 @@ class UserProductServiceTest {
         userProductService.getNutrientsOfGivenProductAndAddItToEatenByHimToDB(userProduct, mock(User.class));
 
         verify(userProductRepository, times(1)).save(any());
+    }
+
+    @Test
+    void shouldThrowIllegalArgumentExceptionWhenGramsAreNegative() {
+        userProductService = new UserProductService(userProductRepository, productRepository, userRepository);
+        UserProduct userProduct = createUserProduct(-2d);
+
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            userProductService.getNutrientsOfGivenProductAndAddItToEatenByHimToDB(userProduct, mock(User.class));
+        });
+
+        assertEquals("Grams can not be negative", exception.getMessage());
     }
 
     private Product createProduct() {
@@ -79,10 +92,10 @@ class UserProductServiceTest {
                 .build();
     }
 
-    private UserProduct createUserProduct() {
+    private UserProduct createUserProduct(Double grams) {
         return UserProduct.builder()
                 .dateOfEatenProduct(LocalDate.now())
-                .gram(50d)
+                .gram(grams)
                 .name("Chicken")
                 .build();
     }

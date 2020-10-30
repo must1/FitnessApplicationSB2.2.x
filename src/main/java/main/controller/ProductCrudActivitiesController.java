@@ -31,7 +31,7 @@ public class ProductCrudActivitiesController {
     }
 
     @PutMapping("/product")
-    public Product updateProduct(@RequestBody Product updatedProduct) {
+    public List<String> updateProduct(@RequestBody Product updatedProduct) {
         return productCrudActivitiesService.updateProduct(updatedProduct);
     }
 }

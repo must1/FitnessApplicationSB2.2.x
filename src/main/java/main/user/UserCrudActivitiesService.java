@@ -45,8 +45,14 @@ public class UserCrudActivitiesService {
         return messages;
     }
 
-    public User updateUser(User user) {
-        return userRepository.save(user);
+    public List<String> updateUser(User user) {
+        List<String> messages = validateUser(user);
+
+        if (CollectionUtils.isEmpty(messages)) {
+            userRepository.save(user);
+        }
+
+        return messages;
     }
 
     private List<String> validateUser(User user) {

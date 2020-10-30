@@ -45,7 +45,7 @@ public class UserProductService {
     }
 
     private Product retrieveGivenProductFromDB(UserProduct productToCalculate) {
-        if (productToCalculate.getGram() > 0) {
+        if (productToCalculate.getGram() >= 0) {
             return productRepository.findByName(productToCalculate.getName())
                     .orElseThrow(() -> new IllegalArgumentException("Product does not exist!"));
         } else {
@@ -54,7 +54,7 @@ public class UserProductService {
     }
 
     private void addGivenProductToGivenUserInDB(long userID, String name, double calculatedFat, double calculatedProtein, double calculatedCarbohydrates, int calculatedKcal) {
-        if (checkIfAccountExist(userID)) {
+        if (doesAccountExist(userID)) {
 
             UserProduct userProduct =
                     UserProduct.builder()
@@ -73,7 +73,7 @@ public class UserProductService {
         }
     }
 
-    private boolean checkIfAccountExist(long userID) {
+    private boolean doesAccountExist(long userID) {
         return userRepository.doesAccountExistsWithID(userID);
     }
 

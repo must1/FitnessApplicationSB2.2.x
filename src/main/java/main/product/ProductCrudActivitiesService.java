@@ -2,7 +2,6 @@ package main.product;
 
 import main.model.Product;
 import main.validator.attributes.product.ProductValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -35,8 +34,14 @@ public class ProductCrudActivitiesService {
         return messages;
     }
 
-    public Product updateProduct(Product productToUpdate) {
-        return productRepository.save(productToUpdate);
+    public List<String> updateProduct(Product productToUpdate) {
+        List<String> messages = productValidator.validate(productToUpdate);
+
+        if (CollectionUtils.isEmpty(messages)) {
+            productRepository.save(productToUpdate);
+        }
+
+        return messages;
     }
 
     //todo stescic to
