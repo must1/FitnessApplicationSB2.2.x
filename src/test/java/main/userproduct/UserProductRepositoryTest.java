@@ -5,19 +5,14 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 @EnableJpaRepositories(basePackages = "main")
 @DataJpaTest
@@ -40,29 +35,26 @@ public class UserProductRepositoryTest {
 
     @Test
     public void shouldReturnProperAmountOfCalories() {
-        List<UserProduct> products = new ArrayList<>();
-        userProductRepository.findAll().forEach(products::add);
-
         double actualCalories = userProductRepository.countCaloriesForDay(1L, LocalDate.now());
-        assertEquals(40, actualCalories);
+        assertThat(actualCalories).isEqualTo(40);
     }
 
     @Test
     public void shouldReturnProperAmountOfFat() {
         double actualCalories = userProductRepository.countFatForDay(1L, LocalDate.now());
-        assertEquals(40, actualCalories);
+        assertThat(actualCalories).isEqualTo(40);
     }
 
     @Test
     public void shouldReturnProperAmountOfProteins() {
         double actualCalories = userProductRepository.countProteinsForDay(1L, LocalDate.now());
-        assertEquals(40, actualCalories);
+        assertThat(actualCalories).isEqualTo(40);
     }
 
     @Test
     public void shouldReturnProperAmountOfCarbohydrates() {
         double actualCalories = userProductRepository.countCarbohydratesForDay(1L, LocalDate.now());
-        assertEquals(40, actualCalories);
+        assertThat(actualCalories).isEqualTo(40);
     }
 
     public void persistEntityToEntityManager(Long userID, LocalDate date) {

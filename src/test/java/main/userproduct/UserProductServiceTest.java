@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
@@ -78,7 +77,7 @@ class UserProductServiceTest {
             userProductService.getNutrientsOfGivenProductAndAddItToEatenByHimToDB(userProduct, mock(User.class));
         });
 
-        assertEquals("Grams can not be negative", exception.getMessage());
+        assertThat(exception.getMessage()).isEqualTo("Grams can not be negative");
     }
 
     private Product createProduct() {

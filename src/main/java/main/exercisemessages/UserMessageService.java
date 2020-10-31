@@ -3,6 +3,8 @@ package main.exercisemessages;
 import main.model.user.UserMessage;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,7 +18,31 @@ public class UserMessageService {
     }
 
     public List<String> getMessages(Long userID) {
-        List<UserMessage> userMessages = userMessageRepository.getAllByUserId(userID);
-        return userMessages.stream().map(UserMessage::getMessage).collect(Collectors.toList());
+        performRemovingObsoleteMessagesProcess(userID);
+        List<UserMessage> actualUserMessages = userMessageRepository.getAllByUserId(userID);
+
+        return actualUserMessages
+                .stream()
+                .map(UserMessage::getMessage)
+                .collect(Collectors.toList());
     }
+
+    private void performRemovingObsoleteMessagesProcess(Long userID) {
+        List<UserMessage> userMessages = userMessageRepository.getAllByUserId(userID);
+        checkIfContainsObsoleteMessagesAndRemoveIfSo(userMessages);
+    }
+
+
+    private void checkIfContainsObsoleteMessagesAndRemoveIfSo(List<UserMessage> userMessages) {
+        userMessages.forEach(userMessage -> {
+            LocalDate currentDate = LocalDate.now();
+            LocalDate newDate = userMessage.getCreationTime();
+            Period period = Period.between(currentDate, newDate);
+            if (period.getDays() <= -1) {
+                userMessageRepository.delete(userMessage);
+            }
+        });
+    }
+
 }
+

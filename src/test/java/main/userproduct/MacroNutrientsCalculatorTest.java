@@ -4,7 +4,7 @@ import main.model.Product;
 import main.product.ProductType;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MacroNutrientsCalculatorTest {
 
@@ -12,28 +12,28 @@ class MacroNutrientsCalculatorTest {
     void shouldCalculateProperFat() {
         double calculatedFat = MacroNutrientsCalculator.countFatNumberOfGivenProduct(100, createProduct());
 
-        assertEquals(1.3d, calculatedFat);
+        assertThat(calculatedFat).isEqualTo(1.3d);
     }
 
     @Test
     void shouldCalculateProperProteins() {
         double calculatedProteins = MacroNutrientsCalculator.countProteinNumberOfGivenProduct(100, createProduct());
 
-        assertEquals(21.5, calculatedProteins);
+        assertThat(calculatedProteins).isEqualTo(21.5);
     }
 
     @Test
     void shouldCalculateProperCarbohydrates() {
         double calculatedCarbohydrates = MacroNutrientsCalculator.countCarbohydratesNumberNumberOfGivenProduct(100, createProduct());
 
-        assertEquals(0, calculatedCarbohydrates);
+        assertThat(calculatedCarbohydrates).isEqualTo(0);
     }
 
     @Test
     void shouldCalculateProperCalories() {
         double calculatedCalories = MacroNutrientsCalculator.countCaloriesOfGivenProduct(100, createProduct());
 
-        assertEquals(99, calculatedCalories);
+        assertThat(calculatedCalories).isEqualTo(99);
     }
 
     private Product createProduct() {

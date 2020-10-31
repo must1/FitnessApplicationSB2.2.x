@@ -5,7 +5,7 @@ import lombok.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Getter
@@ -21,5 +21,5 @@ public class UserMessage {
     private Long userId;
     private String message;
     private boolean isAcknowledged;
-    private LocalDateTime creationTime;
+    private LocalDate creationTime;
 }

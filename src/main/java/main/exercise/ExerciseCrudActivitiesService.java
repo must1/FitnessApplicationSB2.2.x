@@ -10,7 +10,7 @@ import main.validator.attributes.exercise.ExerciseValidator;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -64,7 +64,7 @@ public class ExerciseCrudActivitiesService {
 
     private void createAndSaveUserMessages(List<User> users, @NonNull String exerciseName, @NonNull BodyPartType bodyPartType) {
         users.stream().map(user -> UserMessage.builder()
-                .creationTime(LocalDateTime.now())
+                .creationTime(LocalDate.now())
                 .userId(user.getId())
                 .isAcknowledged(false)
                 .message(String.format(EXERCISE_MESSAGE, bodyPartType, exerciseName))

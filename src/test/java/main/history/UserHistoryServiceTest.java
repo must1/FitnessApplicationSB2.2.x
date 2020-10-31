@@ -11,7 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -44,7 +44,7 @@ class UserHistoryServiceTest {
         UserHistory actualUserHistory = userHistoryService.getUserHistory(user, LocalDate.now());
 
         //then
-        assertEquals(expectedUserHistory, actualUserHistory);
+        assertThat(expectedUserHistory).isEqualTo(actualUserHistory);
     }
 
     private User createUser() {
