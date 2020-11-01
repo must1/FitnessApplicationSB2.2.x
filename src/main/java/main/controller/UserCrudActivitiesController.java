@@ -2,6 +2,7 @@ package main.controller;
 
 import main.model.user.User;
 import main.user.UserCrudActivitiesService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class UserCrudActivitiesController {
         this.userCrudActivitiesService = userCrudActivitiesService;
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userCrudActivitiesService.getAllUsers();

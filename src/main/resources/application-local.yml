@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db
+    username: FITNESSAPPLICATION_USER
+    password: FITNESSAPPLICATION_PASS
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    out-of-order: true
+    baseline-on-migrate: true
+
+server:
+  port: 8090
