@@ -5,7 +5,6 @@ import main.exercise.BodyPartType;
 import main.exercise.ExerciseRepository;
 import main.model.Exercise;
 import main.model.Product;
-import main.model.Role;
 import main.model.user.User;
 import main.product.ProductRepository;
 import main.product.ProductType;
@@ -75,8 +74,8 @@ public class InitialData {
                 .username("must1")
                 .email("penetrat@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
+                .roles(new HashSet<>(Collections.singletonList("ROLE_USER")))
                 .phoneNumber("213702137")
-                .roles(new HashSet<>(Collections.singletonList(new Role("ROLE_ADMIN"))))
                 .favouriteBodyPartType(BodyPartType.CHEST)
                 .build());
 
@@ -86,7 +85,7 @@ public class InitialData {
                 .username("admin1")
                 .email("penetrator@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
-                .roles(new HashSet<>(Collections.singletonList(new Role("ROLE_USER"))))
+                .roles(new HashSet<>(Collections.singletonList("ROLE_ADMIN")))
                 .phoneNumber("213702137")
                 .favouriteBodyPartType(BodyPartType.BICEPS)
                 .build());

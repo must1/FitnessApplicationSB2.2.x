@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:9.6.12://localhost/db
+    username: FITNESSAPPLICATION_USER
+    password: FITNESSAPPLICATION_PASS
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration

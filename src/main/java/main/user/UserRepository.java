@@ -9,12 +9,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UserRepository extends CrudRepository<User, UUID> {
 
     @Query("SELECT CASE WHEN COUNT(user) > 0 THEN true ELSE false END FROM User user WHERE user.id =:userID")
-    boolean doesAccountExistsWithID(@Param("userID") long accountID);
+    boolean doesAccountExistsWithID(@Param("userID") UUID accountID);
 
     Optional<User> findByUsername(String name);
 

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -17,7 +18,7 @@ public class UserMessageService {
         this.userMessageRepository = userMessageRepository;
     }
 
-    public List<String> getMessages(Long userID) {
+    public List<String> getMessages(UUID userID) {
         performRemovingObsoleteMessagesProcess(userID);
         List<UserMessage> actualUserMessages = userMessageRepository.getAllByUserId(userID);
 
@@ -27,7 +28,7 @@ public class UserMessageService {
                 .collect(Collectors.toList());
     }
 
-    private void performRemovingObsoleteMessagesProcess(Long userID) {
+    private void performRemovingObsoleteMessagesProcess(UUID userID) {
         List<UserMessage> userMessages = userMessageRepository.getAllByUserId(userID);
         checkIfContainsObsoleteMessagesAndRemoveIfSo(userMessages);
     }

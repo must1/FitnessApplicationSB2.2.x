@@ -7,6 +7,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ProductCrudActivitiesService {
@@ -45,7 +46,7 @@ public class ProductCrudActivitiesService {
     }
 
     //todo stescic to
-    public Product getProductForId(int id) {
+    public Product getProductForId(UUID id) {
         return productRepository.getById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Product with id " + id + " was not found"));
     }

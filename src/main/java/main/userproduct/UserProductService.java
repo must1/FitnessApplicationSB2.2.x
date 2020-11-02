@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @Service
 public class UserProductService {
@@ -53,7 +54,7 @@ public class UserProductService {
         }
     }
 
-    private void addGivenProductToGivenUserInDB(long userID, String name, double calculatedFat, double calculatedProtein, double calculatedCarbohydrates, int calculatedKcal) {
+    private void addGivenProductToGivenUserInDB(UUID userID, String name, double calculatedFat, double calculatedProtein, double calculatedCarbohydrates, int calculatedKcal) {
         if (doesAccountExist(userID)) {
 
             UserProduct userProduct =
@@ -73,7 +74,7 @@ public class UserProductService {
         }
     }
 
-    private boolean doesAccountExist(long userID) {
+    private boolean doesAccountExist(UUID userID) {
         return userRepository.doesAccountExistsWithID(userID);
     }
 

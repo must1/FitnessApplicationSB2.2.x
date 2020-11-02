@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -21,6 +23,8 @@ import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+@ActiveProfiles("test")
 class UserProductServiceTest {
 
     private UserProductService userProductService;
@@ -45,7 +49,7 @@ class UserProductServiceTest {
                 "calculatedCarbohydrates", 0d,
                 "calculatedKcal", 49.5);
 
-        when(userRepository.doesAccountExistsWithID(anyLong())).thenReturn(true);
+        when(userRepository.doesAccountExistsWithID(any())).thenReturn(true);
         when(productRepository.findByName(anyString())).thenReturn(Optional.ofNullable(product));
 
         Map<String, Double> actualValue =
@@ -60,7 +64,7 @@ class UserProductServiceTest {
         Product product = createProduct();
         UserProduct userProduct = createUserProduct(50d);
 
-        when(userRepository.doesAccountExistsWithID(anyLong())).thenReturn(true);
+        when(userRepository.doesAccountExistsWithID(any())).thenReturn(true);
         when(productRepository.findByName(anyString())).thenReturn(Optional.ofNullable(product));
 
         userProductService.getNutrientsOfGivenProductAndAddItToEatenByHimToDB(userProduct, mock(User.class));

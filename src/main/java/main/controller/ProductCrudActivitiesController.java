@@ -5,6 +5,7 @@ import main.product.ProductCrudActivitiesService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class ProductCrudActivitiesController {
@@ -21,7 +22,7 @@ public class ProductCrudActivitiesController {
     }
 
     @GetMapping("/product")
-    public Product getProductsForId(@RequestParam("id") int id) {
+    public Product getProductsForId(@RequestParam("id") UUID id) {
         return productCrudActivitiesService.getProductForId(id);
     }
 
