@@ -44,10 +44,4 @@ public class ProductCrudActivitiesService {
 
         return messages;
     }
-
-    //todo stescic to
-    public Product getProductForId(UUID id) {
-        return productRepository.getById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Product with id " + id + " was not found"));
-    }
 }

@@ -3,12 +3,13 @@ package main.controller;
 import main.model.Exercise;
 import main.exercise.ExerciseCrudActivitiesService;
 import main.exercise.BodyPartType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-public class   ExerciseCrudActivitiesController {
+public class ExerciseCrudActivitiesController {
 
     private final ExerciseCrudActivitiesService exerciseCrudActivitiesService;
 
@@ -31,9 +32,9 @@ public class   ExerciseCrudActivitiesController {
         return exerciseCrudActivitiesService.getExercisesForType(bodyPartType);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/createExercise")
     public List<String> addExercise(@RequestBody Exercise exercise) {
         return exerciseCrudActivitiesService.addExercise(exercise);
     }
-
 }

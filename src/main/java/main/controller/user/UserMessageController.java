@@ -1,4 +1,4 @@
-package main.controller;
+package main.controller.user;
 
 import main.exercisemessages.UserMessageService;
 import org.springframework.web.bind.annotation.GetMapping;

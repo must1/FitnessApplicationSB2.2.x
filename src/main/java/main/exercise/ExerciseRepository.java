@@ -11,5 +11,4 @@ import java.util.UUID;
 public interface ExerciseRepository extends CrudRepository<Exercise, UUID> {
 
     List<Exercise> getAllByBodyPartType(BodyPartType bodyPartType);
-
 }

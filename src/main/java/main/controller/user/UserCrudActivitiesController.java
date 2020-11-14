@@ -1,4 +1,4 @@
-package main.controller;
+package main.controller.user;
 
 import main.model.user.User;
 import main.user.UserCrudActivitiesService;

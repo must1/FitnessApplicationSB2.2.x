@@ -35,7 +35,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/createUser").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().permitAll().and().httpBasic();
+                .formLogin().permitAll()
+                .and()
+                .httpBasic();
         http.csrf().disable();
     }
 

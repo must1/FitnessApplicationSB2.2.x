@@ -9,6 +9,3 @@ spring:
     locations: classpath:db/migration
     out-of-order: true
     baseline-on-migrate: true
-
-server:
-  port: 8090

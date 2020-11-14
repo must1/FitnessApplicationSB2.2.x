@@ -77,10 +77,4 @@ public class UserProductService {
     private boolean doesAccountExist(UUID userID) {
         return userRepository.doesAccountExistsWithID(userID);
     }
-
-    public List<UserProduct> getUserProducts() {
-        List<UserProduct> products = new ArrayList<>();
-        userProductRepository.findAll().forEach(products::add);
-        return products;
-    }
 }
