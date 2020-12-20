@@ -55,6 +55,7 @@ public class UserProductService {
     }
 
     private void addGivenProductToGivenUserInDB(UUID userID, String name, double calculatedFat, double calculatedProtein, double calculatedCarbohydrates, int calculatedKcal) {
+        userRepository.findAll();
         if (doesAccountExist(userID)) {
 
             UserProduct userProduct =

@@ -1,12 +1,12 @@
 package main.controller.user;
 
 import main.exercisemessages.UserMessageService;
+import main.model.user.User;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 public class UserMessageController {
@@ -18,7 +18,7 @@ public class UserMessageController {
     }
 
     @GetMapping("/usermessages")
-    List<String> getMessages(@RequestParam("id") UUID userID) {
-        return userMessageService.getMessages(userID);
+    List<String> getMessages(@AuthenticationPrincipal User requester) {
+        return userMessageService.getMessages(requester.getId());
     }
 }

@@ -72,7 +72,7 @@ public class InitialData {
                 .firstName("Macko")
                 .lastName("Bogdaniec")
                 .username("must1")
-                .email("penetrat@gmail.com")
+                .email("elko@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
                 .roles(new HashSet<>(Collections.singletonList("ROLE_USER")))
                 .phoneNumber("213702137")
@@ -83,7 +83,7 @@ public class InitialData {
                 .firstName("Macko")
                 .lastName("Bogdaniec")
                 .username("admin1")
-                .email("penetrator@gmail.com")
+                .email("aslda@gmail.com")
                 .password("$2a$10$3g4oIfNqX51bvq7pICs1ReHex8tfb3Dp3eJ9U.MvrX.aPXF7folb6")//123
                 .roles(new HashSet<>(Collections.singletonList("ROLE_ADMIN")))
                 .phoneNumber("213702137")

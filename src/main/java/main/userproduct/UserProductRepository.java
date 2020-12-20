@@ -13,14 +13,14 @@ import java.util.UUID;
 public interface UserProductRepository extends CrudRepository<UserProduct, UUID> {
 
     @Query("SELECT SUM(userProduct.fatNumber) from UserProduct userProduct WHERE :userID = userProduct.userID AND :date = userProduct.dateOfEatenProduct")
-    double countFatForDay(@Param("userID") UUID userID, @Param("date") LocalDate date);
+    Double countFatForDay(@Param("userID") UUID userID, @Param("date") LocalDate date);
 
     @Query("SELECT SUM(userProduct.proteinNumber) from UserProduct userProduct WHERE :userID = userProduct.userID AND :date = userProduct.dateOfEatenProduct")
-    double countProteinsForDay(@Param("userID") UUID userID, @Param("date") LocalDate date);
+    Double countProteinsForDay(@Param("userID") UUID userID, @Param("date") LocalDate date);
 
     @Query("SELECT SUM(userProduct.carbohydratesNumber) from UserProduct userProduct WHERE :userID = userProduct.userID AND :date = userProduct.dateOfEatenProduct")
-    double countCarbohydratesForDay(@Param("userID") UUID userID, @Param("date") LocalDate date);
+    Double countCarbohydratesForDay(@Param("userID") UUID userID, @Param("date") LocalDate date);
 
     @Query("SELECT SUM(userProduct.kcalNumber) from UserProduct userProduct WHERE :userID = userProduct.userID AND :date = userProduct.dateOfEatenProduct")
-    double countCaloriesForDay(@Param("userID") UUID userID, @Param("date") LocalDate date);
+    Double countCaloriesForDay(@Param("userID") UUID userID, @Param("date") LocalDate date);
 }

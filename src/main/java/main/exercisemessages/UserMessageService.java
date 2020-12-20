@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -38,8 +39,8 @@ public class UserMessageService {
         userMessages.forEach(userMessage -> {
             LocalDate currentDate = LocalDate.now();
             LocalDate newDate = userMessage.getCreationTime();
-            Period period = Period.between(currentDate, newDate);
-            if (period.getDays() <= -1) {
+            long difference = ChronoUnit.DAYS.between(currentDate, newDate);
+            if (difference <= -1) {
                 userMessageRepository.delete(userMessage);
             }
         });
